@@ -1,16 +1,22 @@
 # Configuration Management
+A set of configuration options and notes for future reference.
 
 ## Routing
-### Firewall
 
-| Protocol | Source IP | Source Port | Dest IP | Dest Port | Action
-| -------- | ------- | ------- | ------- | ------- | ------- |
-| TCP | - | - | - | 20-21 | Reject |
-| TCP | - | - | - | 23 | Reject |
-| TCP | - | - | - | 25 | Reject |
-| UDP | - | - | - | 69 | reject |
-| UDP/TCP | - | - | - | 135 | reject |
-| UDP/TCP | - | - | - | 137-139 | reject |
-| UDP | - | - | - | 161-162 | reject |
-| TCP | - | - | - | 445 | reject |
-| UDP | - | - | - | 514 | reject
+### Firewall
+> [!NOTE]
+> Outgoing Traffic: `Accept`
+> Incoming Traffic: `Drop`
+
+| Name      | Protocol | Source IP | Source Port | Dest IP | Dest Port | Action |
+| --------- | -------- | --------- | ----------- | ------- | --------- | ------ |
+| ftp       | TCP      | -         | -           | -       | 20-21     | Drop   |
+| telnet    | TCP      | -         | -           | -       | 23        | Drop   |
+| smtp      | TCP      | -         | -           | -       | 25        | Drop   |
+| tftp      | UDP      | -         | -           | -       | 69        | Drop   |
+| msrpc     | UDP/TCP  | -         | -           | -       | 135       | Drop   |
+| netbiosip | UDP/TCP  | -         | -           | -       | 137-139   | Drop   |
+| snmp      | UDP      | -         | -           | -       | 161-162   | Drop   |
+| smbip     | TCP      | -         | -           | -       | 445       | Drop   |
+| syslog    | UDP      | -         | -           | -       | 514       | Drop   |
+
